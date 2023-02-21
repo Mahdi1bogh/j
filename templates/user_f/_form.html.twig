@@ -1,0 +1,71 @@
+{{form_start(form,{'attr':{'class':'form-group'}})}}
+
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+        <h5> Nom</h5>
+        {{ form_row(form.nom_user,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+        <div class="form-error">
+            {{ form_errors(form.nom_user) }}
+        </div>
+    </div>
+</div>
+
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+        <h5> Prenom</h5>
+        {{ form_row(form.prenom_user,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+
+    </div>
+</div>
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+        <h5> Num Tel</h5>
+        {{ form_row(form.tel_user,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+
+    </div>
+
+</div>
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+        <h5> email</h5>
+        {{ form_row(form.email_user,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+
+    </div>
+</div>
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+        <h5> Mot de passe </h5>
+        {{ form_row(form.mdp_user,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+
+    </div>
+</div>
+
+
+
+        <h5> importer une image </h5>
+{{ form_widget(form.pdp) }}
+
+<div style="display: flex; flex-direction: column;gap: 40px;">
+    <div>
+
+         Are you a human?
+        {{ form_row(form.captchaCode,{'label': ' ' ,'attr': {'class':'form-control' }  } ) }}
+
+    </div>
+</div>
+
+<div class="form-group m-0">
+    <button type="submit" class="btn btn-info " target="_self" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">{{ button_label|default('Save') }}</button>
+</div>
+
+{{ form_end(form) }}

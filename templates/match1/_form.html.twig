@@ -1,0 +1,38 @@
+{{ form_start(form, {'attr': {'novalidate' :'novalidate' }} ) }}
+<div style="display: flex; flex-direction: column;gap: 20px;">
+    <div>
+
+        <h5> Nom de l'equipe 1</h5>
+        {{ form_row(form.nom_equipe1,{'label': ' ' ,'attr': {'placeholder': 'Veuillez entrez votre Nom equipe 1' }  } ) }}
+
+    </div>
+    <div>
+        <h5> Nom de l'equipe 2</h5>
+        {{ form_row(form.nom_equipe2,{'label': ' ' , 'attr': {'placeholder': 'Veuillez entrez votre Nom equipe 2' }  } ) }}
+
+    </div>
+    <div >
+        {{ form_row(form.date_match1) }}
+    </div>
+    <div>
+        <h5> Resultat du match  </h5>
+        {{ form_row(form.resultat_match1,{'label': ' ' ,'attr': {'placeholder': 'Veuillez entrez le Resultat' }  } ) }}
+
+    </div>
+    <div>
+        <h5> Lieu du match </h5>
+        {{ form_row(form.lieu_match1,{'label': ' ','attr': {'placeholder': 'Veuillez entrez le lieu du match' }  } ) }}
+
+
+    </div>
+    <div>
+        <h5> L'email de lieu de match</h5>
+        {{ form_row(form.Email_lieu,{'label': ' ','attr': {'placeholder': 'Veuillez entrez lemail du match' }  } ) }}
+
+
+    </div>
+</div>
+    <button class="btn d-grid btn-danger text-white" >{{ button_label|default('Save') }}</button>
+
+</div>
+{{ form_end(form) }}

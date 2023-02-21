@@ -1,0 +1,45 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Joueur index{% endblock %}
+
+{% block tableau %}
+    <div class="container" >
+    <h1>Joueur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdJoueur</th>
+                <th>NomJoueur</th>
+                <th>PrenomJoueur</th>
+                <th>AgeJoueur</th>
+                <th>EmailJoueur</th>
+                <th>user</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for joueur in joueurs %}
+            <tr>
+                <td>{{ joueur.idJoueur }}</td>
+                <td>{{ joueur.nomJoueur }}</td>
+                <td>{{ joueur.prenomJoueur }}</td>
+                <td>{{ joueur.ageJoueur }}</td>
+                <td>{{ joueur.emailJoueur }}</td>
+                <td>{{ joueur.idUser }}</td>
+                <td>
+                    <a href="{{ path('app_joueur_show', {'idJoueur': joueur.idJoueur}) }}">show</a>
+                    <a href="{{ path('app_joueur_edit', {'idJoueur': joueur.idJoueur}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_joueur_new') }}">Create new</a>
+    </div>
+{% endblock %}

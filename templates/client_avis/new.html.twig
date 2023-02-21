@@ -1,0 +1,14 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Nouveau Avis{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Créer un nouveau avis</h1>
+
+        {{ include('client_avis/_form.html.twig') }}
+
+        <a href="{{ path('app_client_avis') }}">back to list</a>
+        <br>
+    </div>
+{% endblock %}

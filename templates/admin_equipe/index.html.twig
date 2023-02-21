@@ -1,0 +1,67 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Equipe{% endblock %}
+
+{% block tableau %}
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+
+                    <div class="table-responsive">
+                        <table class="table text-nowrap">
+                            <thead>
+                            <tr>
+                                <th class="border-top-0">IdEquipe</th>
+                                <th class="border-top-0">NomEquipe</th>
+                                <th class="border-top-0">JeuEquipe</th>
+                                <th class="border-top-0">LogoEquipe</th>
+                                <th class="border-top-0">IdJ1</th>
+                                <th class="border-top-0">IdJ2</th>
+                                <th class="border-top-0">IdJ3</th>
+                                <th class="border-top-0">IdJ4</th>
+                                <th class="border-top-0">IdJ5</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for equipe in equipes %}
+                            <tr>
+                                <td>{{ equipe.idEquipe }}</td>
+                                <td>{{ equipe.nomEquipe }}</td>
+                                <td>{{ equipe.jeuEquipe }}</td>
+                                <td><img src="{{ asset('uploads/equipe/')~equipe.logoEquipe }}" height="50px" width="50px"></td>
+                                <td>{{ equipe.idJ1 }}</td>
+                                <td>{{ equipe.idJ2 }}</td>
+                                <td>{{ equipe.idJ3 }}</td>
+                                <td>{{ equipe.idJ4 }}</td>
+                                <td>{{ equipe.idJ5 }}</td>
+                                <td>
+                                    <a href="{{ path('app_admin_equipe_show', {'idEquipe': equipe.idEquipe}) }}">show</a>
+                                    <a href="{{ path('app_admin_equipe_edit', {'idEquipe': equipe.idEquipe}) }}">edit</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+        <a href="{{ path('app_admin_equipe_new') }} " style="margin-right: 50px">Create new</a>
+    </div>
+
+{% endblock %}

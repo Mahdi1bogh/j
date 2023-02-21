@@ -1,0 +1,74 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Hello ClientJoueurController!{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Mes equipes</h1>
+
+    {% for equipe in equipes %}
+    <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{{ asset('uploads/equipe/'~equipe.logoEquipe) }}" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h3>Nom d'equipe: <strong>{{ equipe.nomEquipe }}</strong></h3>
+            <p class="fst-italic">
+                Nom de jeux: <strong>{{ equipe.jeuEquipe }}</strong>
+            </p>
+            <ul>
+                <li><i class="ri-check-double-line"></i> joueur num 1
+                    <span class="fst-italic float-right">
+                        <a href="{{ path('app_client_equipe_joueur', {'id': equipe.idJ1.idJoueur, 'ide': equipe.idEquipe}) }}" class="btn-sm btn-primary">view profile</a>
+                    </span>
+                </li>
+                <p class="fst-italic">
+                    Nom & Prenom de joueur: <strong>{{ equipe.idJ2.nomJoueur }} {{ equipe.idJ2.prenomJoueur }}</strong>
+                </p>
+                <hr>
+                <li><i class="ri-check-double-line"></i> joueur num 2
+                    <span class="fst-italic float-right">
+                                <a href="{{ path('app_client_equipe_joueur', {'id': equipe.idJ2.idJoueur, 'ide': equipe.idEquipe}) }}" class="btn-sm btn-primary">view profile</a>
+                            </span>
+                </li>
+                <p class="fst-italic">
+                    Nom & Prenom de joueur: <strong>{{ equipe.idJ3.nomJoueur }} {{ equipe.idJ3.prenomJoueur }}</strong>
+                </p>
+                <hr>
+                <li><i class="ri-check-double-line"></i> joueur num 3
+                    <span class="fst-italic float-right">
+                                <a href="{{ path('app_client_equipe_joueur', {'id': equipe.idJ3.idJoueur, 'ide': equipe.idEquipe}) }}" class="btn-sm btn-primary">view profile</a>
+                            </span>
+                </li>
+                <p class="fst-italic">
+                    Nom & Prenom de joueur: <strong>{{ equipe.idJ4.nomJoueur }} {{ equipe.idJ4.prenomJoueur }}</strong>
+                </p>
+                <hr>
+                <li><i class="ri-check-double-line"></i> joueur num 4
+                    <span class="fst-italic float-right">
+                                <a href="{{ path('app_client_equipe_joueur', {'id': equipe.idJ4.idJoueur, 'ide': equipe.idEquipe}) }}" class="btn-sm btn-primary">view profile</a>
+                            </span></li>
+                <p class="fst-italic">
+                    Nom & Prenom de joueur: <strong>{{ equipe.idJ1.nomJoueur }} {{ equipe.idJ1.prenomJoueur }}</strong>
+                </p>
+                <hr>
+                <li><i class="ri-check-double-line"></i> joueur num 5
+                    <span class="fst-italic float-right">
+                                <a href="{{ path('app_client_equipe_joueur', {'id': equipe.idJ5.idJoueur, 'ide': equipe.idEquipe}) }}" class="btn-sm btn-primary">view profile</a>
+                            </span></li>
+                <p class="fst-italic">
+                    Nom & Prenom de joueur: <strong>{{ equipe.idJ5.nomJoueur }} {{ equipe.idJ5.prenomJoueur }}</strong>
+                </p>
+                <hr>
+            </ul>
+        {% else %}
+            <br>
+            <h3>vous n'avez aucune equipe!</h3>
+            <br>
+            {% if not joueur %}
+            <a href="{{ path('app_client_add_joueur') }}" class="btn btn-primary">devenir un joueur</a>
+            {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

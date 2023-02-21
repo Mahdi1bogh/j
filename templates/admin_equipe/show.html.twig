@@ -1,0 +1,57 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Equipe{% endblock %}
+
+{% block tableau %}
+    <h1>Equipe</h1>
+<div class="container">
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdEquipe</th>
+                <td>{{ equipe.idEquipe }}</td>
+            </tr>
+            <tr>
+                <th>NomEquipe</th>
+                <td>{{ equipe.nomEquipe }}</td>
+            </tr>
+            <tr>
+                <th>JeuEquipe</th>
+                <td>{{ equipe.jeuEquipe }}</td>
+            </tr>
+            <tr>
+                <th>LogoEquipe</th>
+                <td>{{ equipe.logoEquipe }}</td>
+            </tr>
+            <tr>
+                <th>IdJ1</th>
+                <td>{{ equipe.idJ1 }}</td>
+            </tr>
+            <tr>
+                <th>IdJ2</th>
+                <td>{{ equipe.idJ2 }}</td>
+            </tr>
+            <tr>
+                <th>IdJ3</th>
+                <td>{{ equipe.idJ3 }}</td>
+            </tr>
+            <tr>
+                <th>IdJ4</th>
+                <td>{{ equipe.idJ4 }}</td>
+            </tr>
+            <tr>
+                <th>IdJ5</th>
+                <td>{{ equipe.idJ5 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_equipe_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_equipe_edit', {'idEquipe': equipe.idEquipe}) }}">edit</a>
+
+    {{ include('admin_equipe/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

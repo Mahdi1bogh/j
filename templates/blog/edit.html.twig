@@ -1,0 +1,17 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block body %}
+
+    <h1>Modifier Blog</h1>
+<div class="container"> <div class=" text-center mt-5 ">
+    {{ include('blog/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="get-started-btn scrollto" style="color:black" href="{{ path('app_blog_index') }}">Liste des blogs</a>
+
+    {{ include('blog/_delete_form.html.twig') }}
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block tableau %}
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Users list</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+
+                        {% if app.user %}
+                            <div class="mb-3">
+                                <li>You are logged in as {{ app.user.emailUser }}, <a class="btn btn-outline-warning" href="{{ path('app_logout') }}">Logout</a></li>
+                            </div>
+                            <div class="mb-4">
+                                <li><a class="btn btn-outline-warning" href="{{ path('home') }}">Page membre</a></li>
+                            </div>
+                        {% endif %}
+
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="white-box">
+                    <h3 class="box-title">Users list</h3>
+
+                    <div class="table-responsive">
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Nom_user</th>
+                <th>Prenom_user</th>
+                <th>Tel_user</th>
+                <th>Email_user</th>
+                <th>Mdp_user</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+
+                <td>{{ user.nomUser }}</td>
+                <td>{{ user.prenomUser }}</td>
+                <td>{{ user.telUser }}</td>
+                <td>{{ user.emailUser }}</td>
+                <td>{{ user.mdpUser }}</td>
+               <!-- <td> {{ user.role ? user.role|json_encode : '' }} </td> -->
+               <!-- <td>{{ user.pdp }}</td> -->
+                <td>
+                    <a href="{{ path('app_user_show', {'id_user': user.idUser}) }}"
+                       class="btn d-grid btn-danger text-white" target="_self" >show</a>
+
+                    <a href="{{ path('app_user_edit', {'id_user': user.idUser}) }}"
+                       class="btn d-grid btn-danger text-white" target="_self">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_new') }}"
+       class="btn d-grid btn-danger text-white" target="_self">Create new</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center">
+    </footer>
+</div>
+    </div>
+
+
+
+    </body>
+    </html>
+{% endblock %}

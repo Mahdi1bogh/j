@@ -1,0 +1,39 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Lignes commandes{% endblock %}
+
+{% block tableau %}
+    <h1>Liste des Lignes de commandes </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdLignecommande</th>
+                <th>Quantite</th>
+                <th>IdCommande</th>
+                <th>NbPts</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lignecommande in lignecommandes %}
+            <tr>
+                <td>{{ lignecommande.idLignecommande }}</td>
+                <td>{{ lignecommande.quantite }}</td>
+                <td>{{ lignecommande.idCommande }}</td>
+                <td>{{ lignecommande.nbPts }}</td>
+                <td>
+                    <a href="{{ path('app_admin_lignecommande_show', {'idLignecommande': lignecommande.idLignecommande}) }} " class="btn btn-primary">show</a>
+                    <a href="{{ path('app_admin_lignecommande_edit', {'idLignecommande': lignecommande.idLignecommande}) }}"class="btn btn-warning">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_lignecommande_new') }}" class="btn btn-success btn-lg btn-block">Create new</a>
+{% endblock %}

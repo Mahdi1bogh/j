@@ -1,0 +1,15 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Edit Lignecommande{% endblock %}
+
+{% block tableau %}
+    <h1>Modifier une Lignecommande</h1>
+
+    {{ include('admin_lignecommande/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_admin_lignecommande_index') }}" class="btn btn-secondary">Retour</a>
+    <hr>
+<button class="btn btn-danger">
+    {{ include('admin_lignecommande/_delete_form.html.twig') }}
+</button>
+{% endblock %}

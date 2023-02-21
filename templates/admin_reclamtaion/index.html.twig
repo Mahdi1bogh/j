@@ -1,0 +1,54 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block tableau %}
+    {% for msg in app.session.flashBag.get('success') %}
+        <br>
+        <div class="col-lg-8 alert alert-success">
+            la reclamation <strong>{{ msg }}</strong> est supprimé avec succés
+        </div>
+        <br>
+    {% endfor %}
+    <h1>Reclamation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdReclam</th>
+                <th>TypeReclam</th>
+                <th>MotifReclam</th>
+                <th>EtatReclam</th>
+                <th>MessageReclam</th>
+                <th>IdUser</th>
+                <th>DateReclam</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamation in reclamations %}
+            <tr>
+                <td>{{ reclamation.idReclam }}</td>
+                <td>{{ reclamation.typeReclam }}</td>
+                <td>{{ reclamation.motifReclam }}</td>
+                <td>{{ reclamation.etatReclam }}</td>
+                <td>{{ reclamation.messageReclam }}</td>
+                <td>{{ reclamation.idUser }}</td>
+                <td>{{ reclamation.dateReclam ? reclamation.dateReclam|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_admin_reclamtaion_show', {'idReclam': reclamation.idReclam}) }}">show</a>
+                    <a href="{{ path('app_admin_reclamtaion_edit', {'idReclam': reclamation.idReclam}) }}">edit</a>
+                    <a href="{{ path('app_admin_reclamtaion_approve', {'idReclam': reclamation.idReclam}) }}">approuver</a>
+                    <a href="{{ path('app_pdf_reclamation', {'idReclam': reclamation.idReclam}) }}">imprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_reclamtaion_new') }}">Create new</a>
+{% endblock %}

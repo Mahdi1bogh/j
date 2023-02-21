@@ -1,0 +1,61 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Hello ClientReclamationController!{% endblock %}
+
+{% block body %}
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+    <h1>Mes reclamations</h1>
+
+    {% for rec in reclamations %}
+        <div class="row">
+            <div class="col-lg-8 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                 <h3>{{ rec.motifReclam }}</h3>
+                <p class="fst-italic">
+                    <strong>Type:</strong>{{ rec.typeReclam }}
+                </p>
+                <p class="fst-italic">
+                    <strong>description:</strong>
+                </p>
+                <p class="fst-italic" style="margin-right: 100px">
+                    {{ rec.messageReclam }}
+                </p>
+                <p class="fst-italic">
+                    <strong>Etat:</strong>
+                    {% if rec.etatReclam == 'En attente' %}
+                <apan style="color:#14bedc" >
+                    {{ rec.etatReclam }}
+                </apan>
+                {% elseif rec.etatReclam == 'En cours' %}
+                    <span style="color:#141edc" >
+                        {{ rec.etatReclam }}
+                    </span>
+                {% else %}
+                    <span style="color:#008d00" >
+                        {{ rec.etatReclam }}
+                    </span>
+                {% endif %}
+                </p>
+
+                <p class="fst-italic">
+                    <span class="float-right">
+                        Date: <strong>{{ rec.dateReclam|date }}</strong>
+                    </span>
+
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+        <hr>
+        {% else %}
+            <br>
+            <h3>vous n'avez pas de reclamations!</h3>
+            <br>
+    {% endfor %}
+        <br>
+        <a href="{{ path('app_client_reclamtaion_new') }}" class="btn btn-info">add reclamation</a>
+    </div>
+</section><!-- End About Section -->
+{% endblock %}

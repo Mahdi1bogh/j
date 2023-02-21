@@ -1,0 +1,14 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Create new Reclamation</h1>
+
+        {{ include('client_reclamation/_form.html.twig') }}
+
+        <a href="{{ path('app_client_reclamation') }}">back to list</a>
+        <br>
+    </div>
+{% endblock %}

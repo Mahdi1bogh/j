@@ -1,0 +1,7 @@
+framework:
+    router:
+        strict_requirements: null
+
+ajax_search:
+    path:     /search
+    defaults: { _controller: App\Controller\BlogController::searchAction }

@@ -1,0 +1,36 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Hello ClientAvisController!{% endblock %}
+
+{% block body %}
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+    <h1>Mes Avis</h1>
+
+    {% for rec in avis %}
+        <div class="row">
+            <p class="fst-italic">
+                <strong>Message:</strong>{{ rec.textAvis }}
+            </p>
+                <p class="fst-italic">
+                    <strong>Rate:</strong>{{ rec.ratingAvis }}
+                </p>
+                <p class="fst-italic">
+                    <strong>Produit:</strong>{{ rec.idProduit }}
+                </p>
+
+        </div>
+        <br>
+        <br>
+        <hr>
+        {% else %}
+            <br>
+            <h3>vous n'avez pas des avis!</h3>
+            <br>
+    {% endfor %}
+        <br>
+        <a href="{{ path('app_client_avis_new') }}" class="btn btn-info">ajouter avis</a>
+    </div>
+</section><!-- End About Section -->
+{% endblock %}

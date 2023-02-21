@@ -1,0 +1,37 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Les Commandes {% endblock %}
+
+{% block content %}
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+            <h3 style="background-color : #FFFF00" > <strong> Tous vos achats </strong> </h3>
+            <br>
+            {% for lc in ligne_commandes %}
+                <div class="row">
+                    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+{#                        <h3>Commande numero {{ commande.idCommande }}</h3>#}
+                        <p class="fst-italic" style="color:#DC143C" >
+                            Produit: {{ lc.idProduit.nomProduit }}
+                        </p>
+                        <p class="fst-italic">
+                            Nombre de points par produits: <strong>{{ lc.idProduit.nbPts }}</strong>
+                        </p>
+                        <p class="fst-italic">
+                            Quantité: <strong>{{ lc.quantite }}</strong>
+                        </p>
+                        <p class="fst-italic">
+                            Nombre total de points: <strong>{{ lc.nbPts }}</strong>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <hr>
+            {% endfor %}
+
+        </div>
+    </section><!-- End About Section -->
+
+{% endblock %}

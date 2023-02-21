@@ -1,0 +1,35 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Lignecommande{% endblock %}
+
+{% block tableau %}
+    <h1>Lignecommande</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdLignecommande</th>
+                <td>{{ lignecommande.idLignecommande }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ lignecommande.quantite }}</td>
+            </tr>
+            <tr>
+                <th>IdCommande</th>
+                <td>{{ lignecommande.idCommande }}</td>
+            </tr>
+            <tr>
+                <th>NbPts</th>
+                <td>{{ lignecommande.nbPts }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_lignecommande_index') }}" class="btn btn-secondary">back to list</a>
+
+    <a href="{{ path('app_admin_lignecommande_edit', {'idLignecommande': lignecommande.idLignecommande}) }}" class="btn btn-warning">edit</a>
+<button class="btn btn-danger">
+    {{ include('admin_lignecommande/_delete_form.html.twig') }}
+</button>
+{% endblock %}

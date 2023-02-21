@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block tableau %}
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+
+                        {% if app.user %}
+                            <div class="mb-3">
+                                <li>You are logged in as {{ app.user.emailUser }}, <a class="btn btn-outline-warning" href="{{ path('app_logout') }}">Logout</a></li>
+                            </div>
+                            <div class="mb-4">
+                                <li><a class="btn btn-outline-warning" href="{{ path('home') }}">Page membre</a></li>
+                            </div>
+                        {% endif %}
+
+                    </ol>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+
+
+
+    <div class="container-fluid">
+        <h2>Liste des blogs</h2>
+        <hr>
+        <!--left-->
+        {% for blog in blogs %}
+            <p style="width:400px;">
+            <div class="col-sm-10">
+                <div class="icon-box">
+                    <div class="row">
+
+                        <div class=" col-md-4 ">
+                        </div>
+                        <div class=" col-md-8 " >
+                            {{ blog.contenuBlog }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-sm-3">
+
+            <div class="icon-box">
+
+                <div class="profile-pic">
+                    <img src="{{asset('/uploads/' ~ blog.imageBlog)}}" alt="" width="450">
+                </div>
+
+                <h4><strong><font size="6"> {{ blog.titreBlog }}</font></strong></h4>
+                 <strong> Publié par: </strong>
+                 {{ blog.emailPublisher }}
+
+                  <p>  <strong>  Crée le: </strong>
+                  {{ blog.createdAt ? blog.createdAt|date('H:i') : '' }}
+                {{ blog.createdAt ? blog.createdAt|date('Y-m-d') : '' }}
+                {% if blog.updatedAt != blog.createdAt %}
+                     <strong>/ modifié le: </strong>
+                        {{ blog.updatedAt ? blog.updatedAt|date('H:i') : '' }}
+                            {{ blog.updatedAt ? blog.updatedAt|date('Y-m-d') : '' }} </p>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+            {{ include('blog/_delete_form.html.twig') }}
+            <hr><!--/left-->
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        <!--center-->
+
+    </div>
+</div>
+{% endblock %}

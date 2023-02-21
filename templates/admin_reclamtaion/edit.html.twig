@@ -1,0 +1,13 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Edit Reclamation{% endblock %}
+
+{% block tableau %}
+    <h1>Edit Reclamation</h1>
+
+    {{ include('admin_reclamtaion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_reclamtaion_index') }}">back to list</a>
+
+    {{ include('admin_reclamtaion/_delete_form.html.twig') }}
+{% endblock %}

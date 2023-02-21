@@ -1,0 +1,11 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block tableau %}
+    <h1>Create new Reclamation</h1>
+
+    {{ include('admin_reclamtaion/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_reclamtaion_index') }}">back to list</a>
+{% endblock %}

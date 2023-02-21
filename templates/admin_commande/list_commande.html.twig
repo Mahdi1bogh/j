@@ -1,0 +1,35 @@
+{% block tableau %}
+
+    <h1>Liste des Commandes </h1> <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>TotalPoints</th>
+                <th>IdUser</th>
+                <th>DateCommande</th>
+                <th>Adresse</th>
+                <th>Etat</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.idCommande }}</td>
+                <td>{{ commande.totalPoints }}</td>
+                <td>{{ commande.idUser }}</td>
+                <td>{{ commande.dateCommande ? commande.dateCommande|date('Y-m-d') : '' }}</td>
+                <td>{{ commande.adresse }}</td>
+                <td>{{ commande.etat }}</td>
+
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

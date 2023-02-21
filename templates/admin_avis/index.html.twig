@@ -1,0 +1,41 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Avis index{% endblock %}
+
+{% block tableau %}
+    <h1>Avis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAvis</th>
+                <th>TextAvis</th>
+                <th>RatingAvis</th>
+                <th>IdProduit</th>
+                <th>IdUser</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avi in avis %}
+            <tr>
+                <td>{{ avi.idAvis }}</td>
+                <td>{{ avi.textAvis }}</td>
+                <td>{{ avi.ratingAvis }}</td>
+                <td>{{ avi.idProduit }}</td>
+                <td>{{ avi.idUser }}</td>
+                <td>
+                    <a href="{{ path('app_admin_avis_show', {'idAvis': avi.idAvis}) }}">show</a>
+                    <a href="{{ path('app_admin_avis_edit', {'idAvis': avi.idAvis}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

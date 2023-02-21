@@ -1,0 +1,87 @@
+{% extends 'base_client.html.twig' %}
+
+{% block title %}Hello ClientEquipeController!{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container emp-profile">
+        <a href="{{ path('app_client_equipe') }}" class="btn-sm btn-outline-primary">retourner</a>
+        <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-head">
+                        <h5>
+                            Equipe:
+                        </h5>
+                        <h6>
+                            Jeux:
+                        </h6>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        <h5>
+                            {{ equipe.nomEquipe }}
+                        </h5>
+                        <h6>
+                            {{ equipe.jeuEquipe }}
+                        </h6>
+
+                    </div>
+                </div>
+            </div>
+        <hr>
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Nom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ joueur.nomJoueur }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Prenom</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ joueur.prenomJoueur }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ joueur.emailJoueur }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Age</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p>{{ joueur.ageJoueur }}</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <hr>
+    </div>
+    <br>
+    <br>
+{% endblock %}

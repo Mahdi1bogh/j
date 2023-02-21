@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_blog_delete', {'id': blog.idBlog}) }}" onsubmit="return confirm('supprimer ce blog?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ blog.idBlog) }}">
+    <button class="get-started-btn scrollto" style="color:black">Supprimer</button>
+</form>

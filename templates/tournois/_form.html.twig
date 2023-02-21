@@ -1,0 +1,26 @@
+{{ form_start(form, {'attr': {'novalidate' :'novalidate' }} ) }}
+<div style="display: flex; flex-direction: column;gap: 20px;">
+    <div>
+
+        <h5> Nom du tournois</h5>
+        {{ form_row(form.nom_tournois,{'label': ' ' ,'attr': {'placeholder': 'Veuillez entrez le nom du tournois' }  } ) }}
+
+    </div>
+    <div>
+        <h5> Rank du tournois</h5>
+        {{ form_row(form.rank_tournois,{'label': ' ' , 'attr': {'placeholder': 'Veuillez entrez le rank du tournois ' }  } ) }}
+
+    </div>
+    <div >
+
+        {{ form_row(form.date_tournois) }}
+    </div>
+{#    <div>#}
+{#        <h5> id du match </h5>#}
+{#        {{ form_row(form.id_match,{'label': ' ' ,'attr': {'placeholder': 'Veuillez entrez lid du match' }  } ) }}#}
+
+{#    </div>#}
+
+    <button class="btn d-grid btn-danger text-white" >{{ button_label|default('Save') }}</button>
+</div>
+{{ form_end(form) }}

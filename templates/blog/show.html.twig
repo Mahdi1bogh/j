@@ -1,0 +1,59 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <h1>Blog</h1>
+
+
+
+
+    <a  class="get-started-btn scrollto" style="color:black" href="{{ path('app_blog_index') }}">Liste des blogs</a>
+    {% if app.user %}
+
+    {% if  blog.getEmailPublisher() == app.user.getEmailUser() %}
+
+    <a  class="get-started-btn scrollto" style="color:black" href="{{ path('app_blog_edit', {'id': blog.idBlog}) }}">Modifier</a>
+
+    {{ include('blog/_delete_form.html.twig') }}
+
+    {% endif %}
+    {% endif %}
+
+    <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="image col-lg-6"  data-aos="fade-right">
+                    <img src="{{asset('/uploads/' ~ blog.imageBlog)}}" alt="" width="600">
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                    <div class='container'>
+                        <div  style="float: left; width:12%;"><img src="{{asset('/uploads/' ~ app.user.pdp)}}" class="rounded-circle" width="60"></div>
+                        <div  style="float: right; width:88%;line-height:10%;"><strong> <font size="-2"> {{ blog.emailPublisher }} </font> </strong></div>
+                    </div>
+                    <a>
+                        <p></p>
+                        <p style="line-height:10%" ><font size="-2">Crée le:
+                                {{ blog.createdAt ? blog.createdAt|date('Y-m-d H:i:s') : '' }}</font></p>
+                        {% if blog.updatedAt != blog.createdAt %}
+                          <p style="line-height:10%"><font size="-2">  modifié le:
+                                  {{ blog.updatedAt ? blog.updatedAt|date('Y-m-d H:i:s') : '' }} </font></p>
+                        {% endif %}
+                    </a>
+
+
+
+                    <div class="icon-box mt-5 mt-lg-0"  data-aos="zoom-in" data-aos-delay="150">
+
+                        <h4>{{ blog.titreBlog }}</h4>
+
+                        <p><span style="white-space: pre-line">{{ blog.contenuBlog }}</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,54 @@
+ <div class="col-lg-8 col-xlg-9 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                {{ form_start(form) }}
+                                
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Nom Produit</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            {{form_widget(form.nom_produit,{'attr':{'class':'form-control'}})}}
+                                                {{ form_errors(form.nom_produit) }}
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Nombre de point</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            {{form_widget(form.nb_pts,{'attr':{'class':'form-control'}})}}
+                                                {{ form_errors(form.nb_pts) }}
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Quantite disponible</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            {{form_widget(form.quantite,{'attr':{'class':'form-control'}})}}
+                                                {{ form_errors(form.quantite) }}
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Catégorie</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            {{form_widget(form.id_categorie,{'attr':{'class':'form-control'}})}}
+                                                {{ form_errors(form.id_categorie) }}
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <label class="col-md-12 p-0">Image</label>
+                                        <div class="col-md-12 border-bottom p-0">
+                                            {{form_widget(form.imageFile,{'attr':{'class':'form-control'}})}}
+                                                {{ form_errors(form.imageFile) }}
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group mb-4">
+                                        <div class="col-sm-12" >
+                                            {{form_widget(form.ajouter,{'attr':{'class':'btn btn-success'}})}}
+                                        </div>
+                                    </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>

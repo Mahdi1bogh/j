@@ -1,0 +1,46 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Reclamation{% endblock %}
+
+{% block tableau %}
+    <h1>Reclamation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdReclam</th>
+                <td>{{ reclamation.idReclam }}</td>
+            </tr>
+            <tr>
+                <th>TypeReclam</th>
+                <td>{{ reclamation.typeReclam }}</td>
+            </tr>
+            <tr>
+                <th>MotifReclam</th>
+                <td>{{ reclamation.motifReclam }}</td>
+            </tr>
+            <tr>
+                <th>EtatReclam</th>
+                <td>{{ reclamation.etatReclam }}</td>
+            </tr>
+            <tr>
+                <th>MessageReclam</th>
+                <td>{{ reclamation.messageReclam }}</td>
+            </tr>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ reclamation.idUser }}</td>
+            </tr>
+            <tr>
+                <th>DateReclam</th>
+                <td>{{ reclamation.dateReclam ? reclamation.dateReclam|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_reclamtaion_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_reclamtaion_edit', {'idReclam': reclamation.idReclam}) }}">edit</a>
+
+    {{ include('admin_reclamtaion/_delete_form.html.twig') }}
+{% endblock %}

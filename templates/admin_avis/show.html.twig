@@ -1,0 +1,38 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Avis{% endblock %}
+
+{% block tableau %}
+    <h1>Avis</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdAvis</th>
+                <td>{{ avi.idAvis }}</td>
+            </tr>
+            <tr>
+                <th>TextAvis</th>
+                <td>{{ avi.textAvis }}</td>
+            </tr>
+            <tr>
+                <th>RatingAvis</th>
+                <td>{{ avi.ratingAvis }}</td>
+            </tr>
+            <tr>
+                <th>IdProduit</th>
+                <td>{{ avi.idProduit }}</td>
+            </tr>
+            <tr>
+                <th>IdUser</th>
+                <td>{{ avi.idUser }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_avis_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_avis_edit', {'idAvis': avi.idAvis}) }}">edit</a>
+
+    {{ include('admin_avis/_delete_form.html.twig') }}
+{% endblock %}

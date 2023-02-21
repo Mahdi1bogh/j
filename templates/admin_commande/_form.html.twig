@@ -1,0 +1,17 @@
+{{ form_start(form, {
+    'attr':{
+        novalidate:'true'
+    }
+}) }}
+    {{ form_row(form.totalPoints) }}
+<div class="col-sm-3">
+    {{ form_row(form.dateCommande) }}
+    {{ 'now'|date('d - m -Y') }}
+</div>
+<label for="">User</label>
+    {{ form_widget(form.idUser) }}
+    {{ form_row(form.adresse) }}
+    {{ form_row(form.etat) }}
+
+    <button class="btn btn-success" style="color: #ffffff">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,40 @@
+{% extends 'base_molka.html.twig' %}
+
+{% block title %}Joueur{% endblock %}
+
+{% block tableau %}
+    <div class="container">
+    <h1>Joueur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdJoueur</th>
+                <td>{{ joueur.idJoueur }}</td>
+            </tr>
+            <tr>
+                <th>NomJoueur</th>
+                <td>{{ joueur.nomJoueur }}</td>
+            </tr>
+            <tr>
+                <th>PrenomJoueur</th>
+                <td>{{ joueur.prenomJoueur }}</td>
+            </tr>
+            <tr>
+                <th>AgeJoueur</th>
+                <td>{{ joueur.ageJoueur }}</td>
+            </tr>
+            <tr>
+                <th>EmailJoueur</th>
+                <td>{{ joueur.emailJoueur }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_joueur_index') }}">back to list</a>
+
+    <a href="{{ path('app_joueur_edit', {'idJoueur': joueur.idJoueur}) }}">edit</a>
+
+    {{ include('joueur/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

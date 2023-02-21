@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+
+
+<div class="form-group">  {{ form_row(form.titre_blog,{'label': 'Titre *' ,'attr': {'class':'form-control' }  } ) }} </div>
+
+<div class="col-md-6">
+    <div class="form-group">  {{ form_row(form.image_blog,{'label': 'Image *' ,'attr': {'class':'form-control' }  } ) }} </div>
+    {{ form_row(form.contenu_blog,{'label': '' ,'attr': {'class':'form-control', 'textarea':'textarea' }  } ) }}
+</div>
+<button class="get-started-btn scrollto" style="color:black">{{ button_label|default('Enregistrer') }}</button>
+
+
+{{ form_end(form) }}

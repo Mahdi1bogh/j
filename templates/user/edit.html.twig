@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block tableau %}
+    <div class="page-wrapper">
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Users list</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                        <ol class="breadcrumb ms-auto">
+
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    <li>You are logged in as {{ app.user.emailUser }}, <a href="{{ path('app_logout') }}">Logout</a></li>
+                                </div>
+                            {% endif %}
+
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+
+
+
+
+
+
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <!-- Row -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" alt="user" src="plugins/images/large/img1.jpg">
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                <a href="javascript:void(0)"><img src="{{asset('/uploads/' ~ user.pdp)}}"
+                                                                  class="thumb-lg img-circle" alt="img"></a>
+                                <h4 class="text-white mt-2">{{ user.nomUser }}</h4>
+                                <h5 class="text-white mt-2">{{ user.emailUser }}</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                            <table class="table">
+                                <th>
+                            {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+                            {{ include('user/_delete_form.html.twig') }}
+                                </th>
+                            <td>
+                            <button class="btn d-grid btn-danger text-white" style="width:90px;height:50px">
+                                <a href="{{ path('app_user_index') }}">back to list</a>
+                            </button>
+                            </td>
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <!-- Row -->
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
+                href="https://www.wrappixel.com/">wrappixel.com</a>
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    </div>
+
+
+{% endblock %}

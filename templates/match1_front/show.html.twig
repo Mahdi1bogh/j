@@ -1,0 +1,37 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Match1{% endblock %}
+
+{% block body %}
+    <h1>Match1</h1>
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Nom de l'equipe 1</th>
+                <td>{{ match1.nomEquipe1 }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'equipe 2</th>
+                <td>{{ match1.nomEquipe2 }}</td>
+            </tr>
+            <tr>
+                <th>Date du match</th>
+                <td>{{ match1.dateMatch1 }}</td>
+            </tr>
+            <tr>
+                <th>Resultat du match</th>
+                <td>{{ match1.resultatMatch1 }}</td>
+            </tr>
+            <tr>
+                <th>Lieu du match</th>
+                <td>{{ match1.lieuMatch1 }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_match1_front_index') }}"><button class="btn d-grid btn-danger text-white"> back to list  </button></a>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}User{% endblock %}
+{% block title1 %}
+    <section id="hero" class="d-flex align-items-center justify-content-center" xmlns="http://www.w3.org/1999/html">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-xl-6 col-lg-8">
+                    <h1>Profile<span>.</span></h1>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block body %}
+<center>
+<div class="container">
+    <div class="main-body">
+
+        <div class="row">
+            <div class=" col-md-5 ">
+            </div>
+            <div class=" col-md-7 ">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+
+                            <img src="{{asset('/uploads/' ~ user.pdp)}}" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4> {{ user.nomUser }} {{ user.prenomUser }}</h4>
+
+                               <!-- <button class="btn btn-primary">Follow</button>
+                                <button class="btn btn-outline-primary">Message</button> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="col-md-8">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Nom</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ user.nomUser }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">prenom</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ user.prenomUser }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ user.emailUser }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    {{ user.telUser }}
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12">
+                    <a class="btn btn-info " target="_self" href="{{ path('app_user_f_edit', {'id_user': user.idUser}) }}">Edit</a>
+                    {{ include('user_f/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</center>
+
+{% endblock %}

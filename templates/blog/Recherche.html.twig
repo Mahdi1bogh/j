@@ -1,0 +1,62 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Blog index{% endblock %}
+
+{% block body %}
+
+    <a class="get-started-btn scrollto" style="color:black"  href="{{ path('app_blog_new') }}">Create new</a>
+
+    <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Blog</h2>
+                <p>Resultat des recherches</p>
+            </div>
+            <form method="POST">
+                <input type="text" name="titre_blog>">
+                <input type="submit" value="recherche">
+
+
+
+
+            {% for blog in blogs %}
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                </div>
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="{{ path('app_blog_show', {'id': blog.idBlog}) }}">
+                        <div class="icon-box">
+
+                            <div class="profile-pic">
+                                <img src="{{asset('/uploads/' ~ blog.imageBlog)}}" alt="" width="450">
+                            </div>
+                            <h4>{{ blog.titreBlog }}</a></h4>
+                    <p> <strong> Publié par: </strong> </p>
+                    <p> {{ blog.emailPublisher }}</p>
+                    <p>
+                        <strong>  Crée le: </strong>
+                    </p>
+                    <p>  {{ blog.createdAt ? blog.createdAt|date('H:i') : '' }}</p>
+                    <p>{{ blog.createdAt ? blog.createdAt|date('Y-m-d') : '' }}</p>
+
+                </div>
+
+            </div>
+
+
+            </a>
+        </div>
+
+
+
+
+        {% endfor %}
+        </div>
+        </form>
+
+        </div>
+
+    </section>
+{% endblock %}

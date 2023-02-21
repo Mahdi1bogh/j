@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tournois{% endblock %}
+
+{% block tableau %}
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb bg-white">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Users list</h4>
+                </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <div class="d-md-flex">
+                        <ol class="breadcrumb ms-auto">
+
+
+
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Users list</h3>
+
+                        <div class="table-responsive">
+
+                        <h1>Tournois</h1>
+
+    <table class="table">
+        <tbody>
+
+
+            <tr>
+                <th>Nom_tournois</th>
+                <td>{{ tournoi.nomTournois }}</td>
+            </tr>
+            <tr>
+                <th>Rank_tournois</th>
+                <td>{{ tournoi.rankTournois }}</td>
+            </tr>
+            <tr>
+                <th>Date_tournois</th>
+                <td>{{ tournoi.dateTournois }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tournois_index') }}"> <button class="btn d-grid btn-danger text-white"> back to list  </button> </a>
+
+    <a href="{{ path('app_tournois_edit', {'id': tournoi.idTournois}) }}"> <button class="btn d-grid btn-danger text-white"> edit </button> </a>
+
+    {{ include('tournois/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End PAge Content -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Right sidebar -->
+    <!-- ============================================================== -->
+    <!-- .right-sidebar -->
+    <!-- ============================================================== -->
+    <!-- End Right sidebar -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+    </div>
+
+
+
+    </body>
+    </html>
+{% endblock %}
